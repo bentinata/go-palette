@@ -1,15 +1,14 @@
 package main
 
 import (
+  "fmt"
   "github.com/gin-gonic/gin"
 )
 
 func main() {
   r := gin.Default()
 
-  r.GET("/", func(c *gin.Context) {
-    c.File("index.html")
-  })
+  r.Static("/", ".")
 
   r.POST("/image", func(c *gin.Context) {
     img, err := Process(c.Request, "file")
@@ -18,10 +17,14 @@ func main() {
       panic(err)
     }
 
-    colors := Image(img, 2)
+    colors := Quantize(img, 2)
+    palette := make([]string, len(colors))
+    for index, clr := range colors {
+      palette[index] = fmt.Sprintf("#%.2x%.2x%.2x%.2x", clr.R, clr.G, clr.B, clr.A);
+    }
 
     c.JSON(200, gin.H{
-      "message": colors,
+      "data": palette,
     })
 
   })

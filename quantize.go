@@ -132,9 +132,7 @@ func Pixels(pixels []color.RGBA, levels int) []color.RGBA {
 	return averages
 }
 
-// Image is a helper that converts the given image into a slice of RGB pixels
-// before performing MMCQ.
-func Image(img image.Image, levels int) []color.RGBA {
+func Quantize(img image.Image, levels int) []color.RGBA {
 
 	rect := img.Bounds()
 	pixels := make([]color.RGBA, 0, rect.Max.X*rect.Max.Y)
