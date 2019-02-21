@@ -1,8 +1,7 @@
 const vue = new Vue({
   el: 'main',
   data: {
-    file: null,
-    colors: ['#463758ff', '#755355ff', '#88788bff', '#edd5c1ff'],
+    colors: ['#282a29', '#ec1d25', '#4b6688', '#f1f1f4'],
   },
   methods: {
     async upload(event) {
@@ -14,8 +13,16 @@ const vue = new Vue({
       });
 
       this.colors = response.data.data;
+
+      this.recolor();
+    },
+    recolor() {
+      for (let i = 0, l = this.colors.length; i < l; i++) {
+        document.documentElement.style.setProperty(`--color${i}`, this.colors[i]);
+      }
     },
   },
-  async mounted() {
+  mounted() {
+    this.recolor();
   },
 });

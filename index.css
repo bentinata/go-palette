@@ -1,0 +1,70 @@
+html, body, main {
+  margin: 0;
+  height: 100%;
+
+  font-family: sans-serif;
+}
+
+main {
+  display: grid;
+  grid: 1fr 2fr / auto-flow;
+}
+
+li {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  flex-grow: 1;
+
+  list-style: none;
+  padding: 0;
+
+  color: var(--color0);
+  font-size: 1em;
+  text-transform: uppercase;
+}
+
+ul:first-child {
+  color: var(--color3);
+}
+
+form {
+  background: white;
+  outline: 2px dashed var(--color2);
+  outline-offset: -10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+label {
+  color: var(--color0);
+  font-size: 1.5em;
+}
+
+label:hover {
+  color: var(--color1);
+}
+
+input {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  li {
+    flex-direction: row;
+  }
+
+  ul {
+    font-size: 2em;
+  }
+}
+
