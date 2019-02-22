@@ -31,7 +31,7 @@ const vue = new Vue({
       const form = new FormData();
       form.append('file', event.target.files[0]);
 
-      const response = await axios.post('/image', form, {
+      const response = await axios.post('image', form, {
         'Content-Type': 'multipart/form-data',
       });
 
