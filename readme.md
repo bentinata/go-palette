@@ -3,6 +3,14 @@
 A simple Go API to get most common colors from an image.
 Basic view is available to try at https://bentinata.com/palette.
 
+# Prerequisite
+
+You need to install `gin` first.
+
+```bash
+go get -u github.com/gin-gonic/gin
+```
+
 # Running
 
 Run it right away, like:
