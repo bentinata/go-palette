@@ -8,19 +8,7 @@
   <link rel="stylesheet" href="index.css">
   </head>
   <body>
-    <main>
-      <form>
-        <input id="file" name="file" type="file" accept="image/*" @change="upload">
-        <label for="file"><strong>Choose a file</strong><span class="dragndrop"> or drag it here</span>.</label>
-      </form>
-      <li>
-        <ul
-          v-for="color in colors"
-          v-bind:style="{background: color}">
-          {{ color }}
-        </ul>
-      </li>
-    </main>
+    <main></main>
     <script src="//unpkg.com/vue"></script>
     <script src="//unpkg.com/axios/dist/axios.min.js"></script>
     <script src="//unpkg.com/marked/marked.min.js"></script>
