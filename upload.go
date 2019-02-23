@@ -16,30 +16,30 @@ func okContentType(contentType string) bool {
 }
 
 func Process(r *http.Request, field string) (image.Image, error) {
-	file, info, err := r.FormFile(field)
+  file, info, err := r.FormFile(field)
 
-	if err != nil {
-		return nil, err
-	}
+  if err != nil {
+    return nil, err
+  }
 
-	contentType := info.Header.Get("Content-Type")
+  contentType := info.Header.Get("Content-Type")
 
-	if !okContentType(contentType) {
-		return nil, errors.New(fmt.Sprintf("Wrong content type: %s", contentType))
-	}
+  if !okContentType(contentType) {
+    return nil, errors.New(fmt.Sprintf("Wrong content type: %s", contentType))
+  }
 
-	bs, err := ioutil.ReadAll(file)
+  bs, err := ioutil.ReadAll(file)
 
-	if err != nil {
-		return nil, err
-	}
+  if err != nil {
+    return nil, err
+  }
 
   img, _, err := image.Decode(bytes.NewReader(bs))
 
-	if err != nil {
-		return nil, err
-	}
+  if err != nil {
+    return nil, err
+  }
 
-	return img, nil
+  return img, nil
 }
 
